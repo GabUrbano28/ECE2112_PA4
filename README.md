@@ -127,7 +127,7 @@ display(VisFemale[VisFemale['Average'] >= 60])
 | **23** | S24 | Microelectronics | 60 | 45 | 57.75 |
 | **25** | S26 | Instrumentation | 83 | 47 | 65.75 |
 
-**VisFemale Students with Average >= 60:**
+**VisFemale with Average >= 60:**
 | Index | Name | Track | GEAS | Electronics | Average |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **5** | S6 | Microelectronics | 86 | 45 | 75.50 |
