@@ -4,7 +4,7 @@
 The content of this repository contains the Programming Assignment 4 for our course "Advance Computer Programming and Algorithms" this S.Y. 2026-2027. This project covers three problems pertaining to Module 4 -  DATA WRANGLING AND DATA VISUALIZATION. 
 
 ### Objectives
-The objectives of this experiment are to filter tabular data from (`board2.xslx`) using several categorical and numerical operations, construct focused DataFrames by selecting relevant features, summarize the relationship between categorical features and a numerical variable, and communicate a data comparison using clear and correctly labeled plots.
+The objectives of this experiment are to filter tabular data from (`board2.xlsx`) using several categorical and numerical operations, construct focused DataFrames by selecting relevant features, summarize the relationship between categorical features and a numerical variable, and communicate a data comparison using clear and correctly labeled plots.
 
 ### Dataset Format
 This experiment uses the supplied `ECE Board Exam 2` dataset. 
