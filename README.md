@@ -4,7 +4,21 @@
 The content of this repository contains the Programming Assignment 4 for our course "Advance Computer Programming and Algorithms" this S.Y. 2026-2027. This project covers three problems pertaining to Module 4 -  DATA WRANGLING AND DATA VISUALIZATION. 
 
 ### Objectives
-The objectives of this experiment are to filter tabular data using several categorical and numerical operations, construct focused DataFrames by selecting relevant features, summarize the relationship between categorical features and a numerical variable, and communicate a data comparison using clear and correctly labeled plots.
+The objectives of this experiment are to filter tabular data from (`board2.xslx`) using several categorical and numerical operations, construct focused DataFrames by selecting relevant features, summarize the relationship between categorical features and a numerical variable, and communicate a data comparison using clear and correctly labeled plots.
+
+### Dataset Format
+This experiment uses the supplied `ECE Board Exam 2` dataset. 
+
+| Column Name | Type | Description |
+| :--- | :--- | :--- |
+| **Name** | Categorical | Student Number |
+| **Gender** | Categorical | Student gender (`Male`, `Female`) |
+| **Track** | Categorical | ECE track specialization (`Communication`, `Microelectronics`, `Instrumentation`) |
+| **Hometown** | Categorical |  (`Luzon`, `Visayas`, `Mindanao`) |
+| **Math** | Numerical | Board exam score in Mathematics |
+| **GEAS** | Numerical | Board exam score in GEAS |
+| **Electronics** | Numerical | Board exam score in Electronics  |
+| **Communication**| Numerical | Board exam score in Communication  |
 
 ### Methods Used
 
@@ -21,12 +35,22 @@ df['Average'] = df[
 display(df.head())
 ```
 
+**Output:**
 
+| Index | Name | Gender | Track | Hometown | Math | Electronics | GEAS | Communication | Average |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **0** | S1 | Male | Instrumentation | Luzon | 58 | 89 | 75 | 78 | 75.00 |
+| **1** | S2 | Female | Communication | Mindanao | 52 | 75 | 90 | 52 | 67.25 |
+| **2** | S3 | Female | Instrumentation | Mindanao | 83 | 74 | 77 | 57 | 72.75 |
+| **3** | S4 | Male | Instrumentation | Visayas | 65 | 58 | 91 | 68 | 70.50 |
+| **4** | S5 | Male | Communication | Luzon | 59 | 86 | 43 | 88 | 69.00 |
+
+---
 
 ### 1. Visayas Communication Dataframe
 
 #### Requirement:
-Filter Visayas students in the Communication track, calculate missing Average values, and keep the Name, Gender, Math, Electronics, and Average columns.
+Filter Visayas students in the Communication track, calculate missing Average values, and keep the `(Name, Gender, Math, Electronics, Average)` columns.
 
 ```pyhton
 vis_comm_filter = (df['Hometown'] == 'Visayas') & (
@@ -42,7 +66,7 @@ print(f"Number of rows in VisComm: {len(VisComm)}")
 
 ### 2. Visayas Female Dataframe
 ### Requirement:
-Extract female students from Visayas with columns Name, Track, GEAS, Electronics, and Average into VisFemale, then output a temporary filtered view for Average >= 60 without altering VisFemale.
+Extract female students from Visayas with columns `(Name, Track, GEAS, Electronics, Average)` into VisFemale, then output a temporary filtered view for Average >= 60 without altering `VisFemale`.
 
 ```pyhton
 vis_female_filter = (df['Hometown'] == 'Visayas') & (df['Gender'] == 'Female')
@@ -59,7 +83,7 @@ display(VisFemale[VisFemale['Average'] >= 60])
 
 ### 3. Category-Average Visualization
 ### Requirement:
-Compute categorical means across Track, Gender, and Hometown, display them on side-by-side axes normalized from 0 to 100, and algorithmically identify the highest-performing groups.
+Compute categorical means across `(Track, Gender, Hometow)`, display them on side-by-side axes normalized from 0 to 100, and algorithmically identify the highest-performing groups.
 
 ```pyhton
 #PART C. LETTER - A
