@@ -20,7 +20,29 @@ This experiment uses the supplied `ECE Board Exam 2` dataset.
 | **Electronics** | Numerical | Board exam score in Electronics  |
 | **Communication**| Numerical | Board exam score in Communication  |
 
-### Methods Used
+### Analysis Method
+#### Part A
+Filter: Isolate records where `Hometown` is Visayas and `Track` is Communication.
+
+Features: Keep `Name`, `Gender`, `Math`, `Electronics`, and `Average`.
+
+Outputs: Generate the filtered DataFrame alongside the total matching row count.
+
+#### Part B
+Filter: Select entries where `Hometown` is Visayas and `Gender` is Female.
+
+Features: Keep `Name`, `Track`, `GEAS`, `Electronics`, and `Average`.
+
+Outputs: Output the complete `VisFemale` DataFrame plus a non-destructive subset where `Average >= 60`.
+
+#### Part C
+
+Filter: Perform grouped aggregations across `Track`, `Gender`, and `Hometown`.
+
+Features: Include categorical groups paired with the `Average` score.
+
+Outputs: Display 3 summary tables in a bar chart using a shared 0–100 scale.
+
 
 ### Setup Data
 ```pyhton
@@ -63,6 +85,19 @@ VisComm = df[vis_comm_filter][
 display(VisComm)
 print(f"Number of rows in VisComm: {len(VisComm)}")
 ```
+**Output:**
+
+| Index | Name | Gender | Math | Electronics | Average |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **10** | S11 | Female | 48 | 56 | 54.75 |
+| **11** | S12 | Male | 89 | 67 | 76.00 |
+| **17** | S18 | Male | 81 | 40 | 63.50 |
+| **21** | S22 | Female | 64 | 39 | 62.50 |
+| **27** | S28 | Male | 85 | 53 | 67.75 |
+
+```text
+Number of rows in VisComm: 5
+```
 
 ### 2. Visayas Female Dataframe
 ### Requirement:
@@ -80,6 +115,26 @@ display(VisFemale)
 print("\nVisFemale with Average >= 60:")
 display(VisFemale[VisFemale['Average'] >= 60])
 ```
+**Output:**
+
+**VisFemale DataFrame:**
+| Index | Name | Track | GEAS | Electronics | Average |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **5** | S6 | Microelectronics | 86 | 45 | 75.50 |
+| **10** | S11 | Communication | 48 | 56 | 54.75 |
+| **20** | S21 | Microelectronics | 68 | 51 | 68.50 |
+| **21** | S22 | Communication | 89 | 39 | 62.50 |
+| **23** | S24 | Microelectronics | 60 | 45 | 57.75 |
+| **25** | S26 | Instrumentation | 83 | 47 | 65.75 |
+
+**VisFemale Students with Average >= 60:**
+| Index | Name | Track | GEAS | Electronics | Average |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **5** | S6 | Microelectronics | 86 | 45 | 75.50 |
+| **20** | S21 | Microelectronics | 68 | 51 | 68.50 |
+| **21** | S22 | Communication | 89 | 39 | 62.50 |
+| **25** | S26 | Instrumentation | 83 | 47 | 65.75 |
+
 
 ### 3. Category-Average Visualization
 ### Requirement:
@@ -159,4 +214,33 @@ print(
 print(
     f"3. Hometown: The category with the highest sample mean average is "
     f"'{top_hometown['Hometown']}' with a mean score of {top_hometown['Average']:.2f}."
+```
+
+**Summary Tables Output:**
+
+**Mean Average by Track:**
+| Track | Average |
+| :--- | :--- |
+| Communication | 67.975000 |
+| Instrumentation | 65.225000 |
+| Microelectronics | 67.500000 |
+
+**Mean Average by Gender:**
+| Gender | Average |
+| :--- | :--- |
+| Female | 66.616667 |
+| Male | 67.183333 |
+
+**Mean Average by Hometown:**
+| Hometown | Average |
+| :--- | :--- |
+| Luzon | 68.083333 |
+| Mindanao | 66.678571 |
+| Visayas | 65.750000 |
+
+**Printed Summary Output:**
+```text
+1. Track: The category with the highest sample mean average is 'Communication' with a mean score of 67.97.
+2. Gender: The category with the highest sample mean average is 'Male' with a mean score of 67.18.
+3. Hometown: The category with the highest sample mean average is 'Luzon' with a mean score of 68.08.
 ```
