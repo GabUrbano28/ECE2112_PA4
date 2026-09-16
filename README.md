@@ -72,7 +72,7 @@ display(df.head())
 ### 1. Visayas Communication Dataframe
 
 #### Requirement:
-Filter Visayas students in the Communication track, calculate missing Average values, and keep the `(Name, Gender, Math, Electronics, Average)` columns.
+Filter Visayas students in the Communication track, and keep the `(Name, Gender, Math, Electronics, Average)` columns.
 
 ```pyhton
 vis_comm_filter = (df['Hometown'] == 'Visayas') & (
@@ -138,7 +138,7 @@ display(VisFemale[VisFemale['Average'] >= 60])
 
 ### 3. Category-Average Visualization
 ### Requirement:
-Compute categorical means across `(Track, Gender, Hometow)`, display them on side-by-side axes normalized from 0 to 100, and algorithmically identify the highest-performing groups.
+Compute categorical means across `(Track, Gender, Hometown)`, display them on side-by-side axes normalized from 0 to 100, and algorithmically identify the highest-performing groups.
 
 ```pyhton
 #PART C. LETTER - A
@@ -214,6 +214,7 @@ print(
 print(
     f"3. Hometown: The category with the highest sample mean average is "
     f"'{top_hometown['Hometown']}' with a mean score of {top_hometown['Average']:.2f}."
+)
 ```
 
 **Summary Tables Output:**
@@ -221,9 +222,9 @@ print(
 **Mean Average by Track:**
 | Track | Average |
 | :--- | :--- |
-| Communication | 67.975000 |
-| Instrumentation | 65.225000 |
-| Microelectronics | 67.500000 |
+| Communication | 67.975 |
+| Instrumentation | 65.225 |
+| Microelectronics | 67.500 |
 
 **Mean Average by Gender:**
 | Gender | Average |
